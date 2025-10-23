@@ -14,7 +14,7 @@ class ScanScreen extends StatefulWidget {
 }
 
 class _ScanScreenState extends State<ScanScreen> {
-  CameraController? _controller; // gunakan nullable agar aman
+  CameraController? _controller;
   late Future<void> _initializeControllerFuture;
 
   @override
@@ -87,18 +87,36 @@ class _ScanScreenState extends State<ScanScreen> {
       );
     } catch (e) {
       if (!mounted) return;
-      ScaffoldMessenger.of(context)
-          .showSnackBar(SnackBar(content: Text('Error: $e')));
+      // ✅ Pesan error sudah disesuaikan
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text(
+            'Pemindaian Gagal! Periksa Izin Kamera atau coba lagi.',
+          ),
+          backgroundColor: Colors.redAccent,
+        ),
+      );
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    // Jika controller belum siap, tampilkan loading
+    // ✅ Custom Loading Screen
     if (_controller == null || !_controller!.value.isInitialized) {
-      return const Scaffold(
+      return Scaffold(
+        backgroundColor: Colors.grey[900],
         body: Center(
-          child: CircularProgressIndicator(),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: const [
+              CircularProgressIndicator(color: Colors.yellow),
+              SizedBox(height: 20),
+              Text(
+                'Memuat Kamera... Harap tunggu.',
+                style: TextStyle(color: Colors.white, fontSize: 18),
+              ),
+            ],
+          ),
         ),
       );
     }

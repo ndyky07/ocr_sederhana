@@ -98,3 +98,10 @@ OCR berfungsi untuk mengubah teks dari gambar menjadi teks digital yang bisa dis
 * **Google Lens** – mengenali teks pada foto, papan nama, atau dokumen dan mengubahnya menjadi teks digital.
 * **Adobe Scan** – memindai dokumen dan mengubah hasil foto menjadi file PDF dengan teks yang bisa disalin atau dicari.
 
+**UJIAN TENGAH SEMESTER (UTS) PRAKTIKUM**
+
+**Instruksi Awal (SETUP) - Wajib**
+
+1. Pastikan proyek ocr_sederhana sudah diinisialisasi sebagai repositori Git dan ter hubung ke akun GitHub Anda.
+2. Lakukan commit awal untuk memastikan branch main Anda bersih.
+
